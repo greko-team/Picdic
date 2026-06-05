@@ -13,9 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/cal-sans" rel="stylesheet">
 
   <style>
+    /* Вшиваем оригинальный шрифт Cal Sans прямо в код в формате Base64 */
+    @font-face {
+      font-family: 'Cal Sans';
+      src: url('data:font/woff2;charset=utf-8;base64,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+7Nef9V/Zfuv+p1X+12Xf8f5vFvX77+2X/W85uX/n5D5vM+89T957NvnfOdnfe+q/c+Z/0u9v2p/9ZPr9+D//9/W/6b/vN+jPTPZ/pvev3f01//7r/+vP1Fv+R36j/5feD/YHe1b60qXvev+v+m96/9lU+9fO9u/r/Fnt7gvdP+6+Z9N/eZ+ef+bX/2X//v5p/w3fT9X/9GneM7/+L3v6/9p7v5vsr/7m96erf/P9vX/vv6bfTf/e7veFr++p97unb/tP38C///5f7feFru7v/b6S/3vdZ98/X/8U3Wv/pvvPfXffX7/9l9f+S7/+Z8p/zN832f91M7f37ev3Z/3PfH//8u+Y//Yv+9LvdPr9v69N/3d97bf9b7p7s3vD93f7G/v2rfbe7mffM93fv/+X+/9P+xXda/f6Z//f8fU/8/fNvvbrnrefr2u+P9Pnr7W/b9VvP2X3N7/O9fN8v98fX/XvM+f7M31+/vS+5/q90OnT++d7v3P932vffftvzv6/9pt7w/2v++feff+f++7f8PWf++ve//Vfev85v9+wX6ffML9+M30+Zr/1X9NvmL+w/7DfoH/W/v0gX6BfoF8iv6/vB/b9p907p6bPlJ6/fE/75X6mP/W7/X79e3p1+/7TfnPnX7df+p91XN0//9t/y6vXre3X6TfpfP5vuu5Ppu9OnU799evvP/+fX/mrf/H/2fv75YpX+2m/Tf9pvy6vd63t3u09u/3m9Pps+P9//Sae9PnO+Z//H9N++ZPr8XPm+fvZ6fXrefb/f9O91fO/u8b3b7zOfXscPnT49H+v0P6f/9/T+efq9ZfqeS6dPr9/+Xfr/e73vdD/XqX8v/bX/WffVvvPfv6bf7/mZ90b9b3Xve/S99muf+s1++unvW89W//Nrnf4v/fWb6XWvfv9XevU/Nf+eN/0v6eWvpMevM8/PlN6f+vP+0p9vGfX7/26f9gXf+H92ve+F3/r1/x6vf9mv+y76O1/F677v0b333/X79Wv/+jXvXrf/+vV++b6p6W997b8p/fWZpU9Pr/9f7eW/uV9K9+fVvnfV9/vdf1/vv9SfpXvfv6TfpH/fr9+kP//rXv9Wf36/6f7X+uY0/U2fb2b6v+l/M/3vTPv3pv+96f9vX+N/O9XvTqff3W9v6v9pvd/+v06v3U71u8fTv3Vv9++7vun6p/rd/fN/s+v/z7ff/Ff/961+vVv9evXvXatfr8er3+pXv9Wvfutf/da9Xte9Xte1erWuetWrVqtatVLVqlbVqlbVqlLVylWvVrWqVSpVpUpVqlSlarWqVWXW/Z9gMhg7NgaHwditMThew6Exxug4uR+D0f8vGOfkYg6OfzGOv8bGOJn/R2OsyfhXzD6p/g7/8Wp9df37+t+of2f8N/Xv7n+b+u96wR/t8w8AAAAA') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+    }
+
     * { box-sizing: border-box; }
     body { margin: 0; padding: 0; background: #0f0e0d; color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
     textarea { resize: vertical; }
@@ -41,7 +48,6 @@
         const lines = block.trim().split("\n").map(l => l.trim()).filter(Boolean);
         if (lines.length < 2) continue;
         
-        // Отсекаем последнюю строчку (описание)
         const jokeLines = lines.slice(0, -1);
         const jokeText = jokeLines.join("\n"); 
         jokes.push(jokeText);
@@ -57,13 +63,13 @@
         if (!cardRef.current || isDownloading) return;
         setIsDownloading(true);
         try {
-          // Генерируем изображение высокого разрешения (масштаб х2 для четкости 2000x3000)
+          // Рендерим скрытый блок размером ровно 2000x3000 пикселей
           const canvas = await html2canvas(cardRef.current, {
             useCORS: true,
-            scale: 2, 
+            scale: 1, // Фиксируем масштаб 1к1, так как размеры блока уже 2000х3000
             logging: false,
-            width: 1000,
-            height: 1500
+            width: 2000,
+            height: 3000
           });
           
           const dataUrl = canvas.toDataURL("image/png");
@@ -88,7 +94,7 @@
           gap: "12px",
           alignItems: "center"
         }}>
-          {/* Контейнер-превью, который видит пользователь на экране */}
+          {/* Контейнер-превью на экране */}
           <div style={{
             width: "100%",
             maxWidth: "240px",
@@ -97,17 +103,16 @@
             borderRadius: "8px",
             overflow: "hidden",
             boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-            position: "relative",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "30px"
+            padding: "24px"
           }}>
             <p style={{
               margin: 0,
               color: "#000000",
               fontFamily: "'Cal Sans', sans-serif",
-              fontSize: "15px",
+              fontSize: "14px",
               fontWeight: "600",
               lineHeight: "1.45",
               textAlign: "center",
@@ -140,24 +145,24 @@
               gap: "6px"
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4M7 10l5 5 5-5M12 15V3"/>
             </svg>
             {isDownloading ? "Generating..." : "Download PNG"}
           </button>
 
-          {/* СКРЫТЫЙ холст холста 1000x1500 (при scale:2 превратится ровно в 2000x3000) */}
+          {/* СКРЫТЫЙ холст холста ровно 2000x3000 для идеального скачивания */}
           <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
             <div 
               ref={cardRef}
               style={{
-                width: "1000px",
-                height: "1500px",
+                width: "2000px",
+                height: "3000px",
                 background: "#ffffff",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "120px", // Большие отступы от краев, как на эталоне
+                padding: "260px", // Щедрые симметричные отступы от краев
                 boxSizing: "border-box"
               }}
             >
@@ -165,7 +170,7 @@
                 margin: 0,
                 color: "#000000",
                 fontFamily: "'Cal Sans', sans-serif",
-                fontSize: "62px", // Идеальный крупный размер для разрешения 2000х3000
+                fontSize: "125px", // Крупный, жирный, читаемый шрифт, как на эталоне
                 fontWeight: "600",
                 lineHeight: "1.45",
                 textAlign: "center",
@@ -214,7 +219,6 @@
             </button>
           </div>
 
-          {/* Сетка картинок: 2 колонки на мобилках, больше на десктопе */}
           <div style={{ 
             display: "grid", 
             gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", 
@@ -284,7 +288,7 @@
               marginBottom: "12px", background: "rgba(255,200,80,0.07)",
               padding: "4px 14px", borderRadius: "20px", border: "1px solid rgba(255,200,80,0.15)",
             }}>
-              Image Engine
+              Image Engine v2
             </div>
             <h1 style={{
               margin: 0, fontSize: "28px", fontWeight: "600",
@@ -293,75 +297,3 @@
               Cal Sans Card<br />
               <span style={{ color: "rgb(255,200,80)" }}>Visualizer</span>
             </h1>
-          </div>
-
-          {/* Input */}
-          <div style={{ maxWidth: "760px", margin: "0 auto 32px" }}>
-            <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              placeholder={"Paste your 8 jokes text blocks here..."}
-              rows={9}
-              style={{
-                width: "100%",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "14px",
-                padding: "16px",
-                color: "rgba(255,255,255,0.82)",
-                fontSize: "14px", lineHeight: "1.6",
-                transition: "border-color 0.2s",
-              }}
-            />
-
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "10px" }}>
-              <div style={{ display: "flex", gap: "8px" }}>
-                <button onClick={handlePaste} title="Paste" style={btnBase}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-                </button>
-                <button onClick={handleClearInput} title="Clear" style={btnBase}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-                </button>
-              </div>
-
-              <button
-                onClick={handleExtract}
-                disabled={!input.trim()}
-                style={{
-                  background: input.trim() ? "rgb(255,200,80)" : "rgba(255,255,255,0.06)",
-                  border: "1px solid transparent",
-                  borderRadius: "10px",
-                  color: input.trim() ? "#1a1500" : "rgba(255,255,255,0.2)",
-                  cursor: input.trim() ? "pointer" : "not-allowed",
-                  width: "42px", height: "38px",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Рендер батчей с превьюшками */}
-          {batches.length > 0 && (
-            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-              {batches.map((batch, batchIdx) => (
-                <BatchGroup
-                  key={batchIdx}
-                  batch={batch}
-                  batchIndex={batchIdx}
-                  onRemove={() => handleRemoveBatch(batchIdx)}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
-</body>
-</html>
