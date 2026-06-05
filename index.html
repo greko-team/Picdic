@@ -3,297 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joke Image Card Generator</title>
+  <title>Cal Sans Card Visualizer</title>
   
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/cal-sans" rel="stylesheet">
 
   <style>
-    /* Вшиваем оригинальный шрифт Cal Sans прямо в код в формате Base64 */
-    @font-face {
-      font-family: 'Cal Sans';
-      src: url('data:font/woff2;charset=utf-8;base64,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+7Nef9V/Zfuv+p1X+12Xf8f5vFvX77+2X/W85uX/n5D5vM+89T957NvnfOdnfe+q/c+Z/0u9v2p/9ZPr9+D//9/W/6b/vN+jPTPZ/pvev3f01//7r/+vP1Fv+R36j/5feD/YHe1b60qXvev+v+m96/9lU+9fO9u/r/Fnt7gvdP+6+Z9N/eZ+ef+bX/2X//v5p/w3fT9X/9GneM7/+L3v6/9p7v5vsr/7m96erf/P9vX/vv6bfTf/e7veFr++p97unb/tP38C///5f7feFru7v/b6S/3vdZ98/X/8U3Wv/pvvPfXffX7/9l9f+S7/+Z8p/zN832f91M7f37ev3Z/3PfH//8u+Y//Yv+9LvdPr9v69N/3d97bf9b7p7s3vD93f7G/v2rfbe7mffM93fv/+X+/9P+xXda/f6Z//f8fU/8/fNvvbrnrefr2u+P9Pnr7W/b9VvP2X3N7/O9fN8v98fX/XvM+f7M31+/vS+5/q90OnT++d7v3P932vffftvzv6/9pt7w/2v++feff+f++7f8PWf++ve//Vfev85v9+wX6ffML9+M30+Zr/1X9NvmL+w/7DfoH/W/v0gX6BfoF8iv6/vB/b9p907p6bPlJ6/fE/75X6mP/W7/X79e3p1+/7TfnPnX7df+p91XN0//9t/y6vXre3X6TfpfP5vuu5Ppu9OnU799evvP/+fX/mrf/H/2fv75YpX+2m/Tf9pvy6vd63t3u09u/3m9Pps+P9//Sae9PnO+Z//H9N++ZPr8XPm+fvZ6fXrefb/f9O91fO/u8b3b7zOfXscPnT49H+v0P6f/9/T+efq9ZfqeS6dPr9/+Xfr/e73vdD/XqX8v/bX/WffVvvPfv6bf7/mZ90b9b3Xve/S99muf+s1++unvW89W//Nrnf4v/fWb6XWvfv9XevU/Nf+eN/0v6eWvpMevM8/PlN6f+vP+0p9vGfX7/26f9gXf+H92ve+F3/r1/x6vf9mv+y76O1/F677v0b333/X79Wv/+jXvXrf/+vV++b6p6W997b8p/fWZpU9Pr/9f7eW/uV9K9+fVvnfV9/vdf1/vv9SfpXvfv6TfpH/fr9+kP//rXv9Wf36/6f7X+uY0/U2fb2b6v+l/M/3vTPv3pv+96f9vX+N/O9XvTqff3W9v6v9pvd/+v06v3U71u8fTv3Vv9++7vun6p/rd/fN/s+v/z7ff/Ff/961+vVv9evXvXatfr8er3+pXv9Wvfutf/da9Xte9Xte1erWuetWrVqtatVLVqlbVqlbVqlLVylWvVrWqVSpVpUpVqlSlarWqVWXW/Z9gMhg7NgaHwditMThew6Exxug4uR+D0f8vGOfkYg6OfzGOv8bGOJn/R2OsyfhXzD6p/g7/8Wp9df37+t+of2f8N/Xv7n+b+u96wR/t8w8AAAAA') format('woff2');
-      font-weight: 600;
-      font-style: normal;
-    }
-
     * { box-sizing: border-box; }
-    body { margin: 0; padding: 0; background: #0f0e0d; color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-    textarea { resize: vertical; }
-    textarea::placeholder { color: rgba(255,255,255,0.18); }
-    textarea:focus { outline: none; border-color: rgba(255,200,80,0.35) !important; box-shadow: 0 0 0 3px rgba(255,200,80,0.05); }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+    body { 
+      margin: 0; padding: 0; 
+      background: #0f0e0d; 
+      color: #fff; 
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,200,80,0.07) 0%, transparent 60%);
+      padding: 40px 16px 60px;
+    }
+    .header { text-align: center; margin-bottom: 32px; }
+    .badge {
+      display: inline-block; fontSize: 10px; font-family: 'DM Mono', monospace;
+      letter-spacing: 0.2em; color: rgba(255,200,80,0.6); text-transform: uppercase;
+      margin-bottom: 12px; background: rgba(255,200,80,0.07);
+      padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(255,200,80,0.15);
+    }
+    h1 { margin: 0; font-size: 28px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.2; letter-spacing: -0.01em; }
+    h1 span { color: rgb(255,200,80); }
+    
+    .container { maxWidth: 760px; margin: 0 auto 32px; }
+    textarea {
+      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 16px; color: rgba(255,255,255,0.82); font-size: 14px; line-height: 1.6;
+      transition: border-color 0.2s; resize: vertical;
+    }
+    textarea:focus { outline: none; border-color: rgba(255,200,80,0.35); box-shadow: 0 0 0 3px rgba(255,200,80,0.05); }
+    
+    .controls { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+    .btn-group { display: flex; gap: 8px; }
+    .btn-base {
+      border: 1px solid rgba(255,200,80,0.2); border-radius: 8px; background: rgba(255,200,80,0.07);
+      color: rgba(255,200,80,0.55); cursor: pointer; padding: 7px 11px; font-size: 13px; font-family: 'DM Mono', monospace;
+      display: flex; align-items: center; gap: 6px; transition: all 0.15s;
+    }
+    .btn-extract {
+      background: rgba(255,255,255,0.06); border: 1px solid transparent; border-radius: 10px;
+      color: rgba(255,255,255,0.2); cursor: not-allowed; width: 42px; height: 38px;
+      display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+    }
+    .btn-extract.active { background: rgb(255,200,80); color: #1a1500; cursor: pointer; }
+    
+    .batch-group {
+      background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; padding: 20px; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .batch-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .batch-title { font-size: 10px; font-family: 'DM Mono', monospace; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,200,80,0.55); }
+    .btn-close {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 7px;
+      color: rgba(255,255,255,0.35); cursor: pointer; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 14px; padding: 0;
+    }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .card-preview {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+      padding: 16px; display: flex; flex-direction: column; gap: 12px; align-items: center;
+    }
+    .preview-box {
+      width: 100%; max-width: 240px; height: 360px; background: #ffffff; border-radius: 8px;
+      overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative;
+      display: flex; align-items: center; justify-content: center; padding: 30px;
+    }
+    .preview-text {
+      margin: 0; color: #000000; font-family: 'Cal Sans', sans-serif; font-size: 14px;
+      font-weight: 600; line-height: 1.45; text-align: center; white-space: pre-line; word-break: break-word;
+    }
+    .btn-download {
+      width: 100%; max-width: 240px; background: rgba(255,200,80,0.1); border: 1px solid rgba(255,200,80,0.3);
+      color: rgb(255,200,80); border-radius: 8px; padding: 10px; font-size: 12px; font-family: 'DM Mono', monospace;
+      cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
   </style>
 </head>
 <body>
 
-  <div id="root"></div>
+  <div class="header">
+    <div class="badge">Image Engine</div>
+    <h1>Cal Sans Card<br><span>Visualizer</span></h1>
+  </div>
 
-  <script type="text/babel">
-    const { useState, useCallback, useRef } = React;
+  <div class="container">
+    <textarea id="jokeInput" rows="9" placeholder="Paste your 8 jokes text blocks here..."></textarea>
+    <div class="controls">
+      <div class="btn-group">
+        <button class="btn-base" id="btnPaste" title="Paste">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+        </button>
+        <button class="btn-base" id="btnClear" title="Clear">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+        </button>
+      </div>
+      <button class="btn-extract" id="btnExtract" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+      </button>
+    </div>
+  </div>
 
-    // Парсер: берет только тело анекдота (все строчки кроме последней)
+  <div id="outputContainer"></div>
+
+  <script>
+    const jokeInput = document.getElementById('jokeInput');
+    const btnExtract = document.getElementById('btnExtract');
+    const btnPaste = document.getElementById('btnPaste');
+    const btnClear = document.getElementById('btnClear');
+    const outputContainer = document.getElementById('outputContainer');
+
+    let batchCount = 0;
+
+    jokeInput.addEventListener('input', () => {
+      if (jokeInput.value.trim()) {
+        btnExtract.removeAttribute('disabled');
+        btnExtract.classList.add('active');
+      } else {
+        btnExtract.setAttribute('disabled', 'true');
+        btnExtract.classList.remove('active');
+      }
+    });
+
+    btnClear.addEventListener('click', () => {
+      jokeInput.value = '';
+      btnExtract.setAttribute('disabled', 'true');
+      btnExtract.classList.remove('active');
+    });
+
+    btnPaste.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        jokeInput.value = text;
+        btnExtract.removeAttribute('disabled');
+        btnExtract.classList.add('active');
+      } catch (e) {
+        jokeInput.focus();
+      }
+    });
+
     function parseOnlyJokes(text) {
       const blocks = text.trim().split(/\n\s*\n/);
       const jokes = [];
       for (const block of blocks) {
         const lines = block.trim().split("\n").map(l => l.trim()).filter(Boolean);
         if (lines.length < 2) continue;
-        
         const jokeLines = lines.slice(0, -1);
-        const jokeText = jokeLines.join("\n"); 
-        jokes.push(jokeText);
+        jokes.push(jokeLines.join("\n"));
       }
       return jokes;
     }
 
-    function JokeCardPreview({ jokeText, index }) {
-      const cardRef = useRef(null);
-      const [isDownloading, setIsDownloading] = useState(false);
+    btnExtract.addEventListener('click', () => {
+      const text = jokeInput.value;
+      if (!text.trim()) return;
 
-      const downloadImage = async () => {
-        if (!cardRef.current || isDownloading) return;
-        setIsDownloading(true);
-        try {
-          // Рендерим скрытый блок размером ровно 2000x3000 пикселей
-          const canvas = await html2canvas(cardRef.current, {
-            useCORS: true,
-            scale: 1, // Фиксируем масштаб 1к1, так как размеры блока уже 2000х3000
-            logging: false,
-            width: 2000,
-            height: 3000
-          });
-          
-          const dataUrl = canvas.toDataURL("image/png");
-          const link = document.createElement("a");
-          link.download = `joke-${String(index + 1).padStart(2, "0")}.png`;
-          link.href = dataUrl;
-          link.click();
-        } catch (err) {
-          console.error("Ошибка генерации картинки:", err);
-        }
-        setIsDownloading(false);
-      };
+      const jokes = parseOnlyJokes(text);
+      if (jokes.length === 0) return;
 
-      return (
-        <div style={{
-          background: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "14px",
-          padding: "16px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-          alignItems: "center"
-        }}>
-          {/* Контейнер-превью на экране */}
-          <div style={{
-            width: "100%",
-            maxWidth: "240px",
-            height: "360px",
-            background: "#ffffff",
-            borderRadius: "8px",
-            overflow: "hidden",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "24px"
-          }}>
-            <p style={{
-              margin: 0,
-              color: "#000000",
-              fontFamily: "'Cal Sans', sans-serif",
-              fontSize: "14px",
-              fontWeight: "600",
-              lineHeight: "1.45",
-              textAlign: "center",
-              whiteSpace: "pre-line",
-              wordBreak: "break-word"
-            }}>
-              {jokeText}
-            </p>
-          </div>
+      batchCount++;
+      createBatchDOM(jokes, batchCount);
+      jokeInput.value = '';
+      btnExtract.setAttribute('disabled', 'true');
+      btnExtract.classList.remove('active');
+    });
 
-          {/* Кнопка скачать */}
-          <button
-            onClick={downloadImage}
-            disabled={isDownloading}
-            style={{
-              width: "100%",
-              maxWidth: "240px",
-              background: "rgba(255,200,80,0.1)",
-              border: "1px solid rgba(255,200,80,0.3)",
-              color: "rgb(255,200,80)",
-              borderRadius: "8px",
-              padding: "10px",
-              fontSize: "12px",
-              fontFamily: "'DM Mono', monospace",
-              cursor: isDownloading ? "not-allowed" : "pointer",
-              transition: "all 0.15s",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "6px"
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-            {isDownloading ? "Generating..." : "Download PNG"}
-          </button>
+    function createBatchDOM(jokes, index) {
+      const batchEl = document.createElement('div');
+      batchEl.className = 'batch-group';
 
-          {/* СКРЫТЫЙ холст холста ровно 2000x3000 для идеального скачивания */}
-          <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
-            <div 
-              ref={cardRef}
-              style={{
-                width: "2000px",
-                height: "3000px",
-                background: "#ffffff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "260px", // Щедрые симметричные отступы от краев
-                boxSizing: "border-box"
-              }}
-            >
-              <p style={{
-                margin: 0,
-                color: "#000000",
-                fontFamily: "'Cal Sans', sans-serif",
-                fontSize: "125px", // Крупный, жирный, читаемый шрифт, как на эталоне
-                fontWeight: "600",
-                lineHeight: "1.45",
-                textAlign: "center",
-                whiteSpace: "pre-line"
-              }}>
-                {jokeText}
-              </p>
-            </div>
-          </div>
-        </div>
-      );
+      const headerEl = document.createElement('div');
+      headerEl.className = 'batch-header';
+      headerEl.innerHTML = `
+        <span class="batch-title">Batch ${String(index).padStart(2, '0')} · ${jokes.length} Cards</span>
+        <button class="btn-close">×</button>
+      `;
+      headerEl.querySelector('.btn-close').addEventListener('click', () => batchEl.remove());
+      batchEl.appendChild(headerEl);
+
+      const gridEl = document.createElement('div');
+      gridEl.className = 'grid';
+
+      jokes.forEach((jokeText, i) => {
+        const cardEl = document.createElement('div');
+        cardEl.className = 'card-preview';
+
+        const previewBox = document.createElement('div');
+        previewBox.className = 'preview-box';
+        previewBox.innerHTML = `<p class="preview-text">${escapeHtml(jokeText)}</p>`;
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'btn-download';
+        downloadBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4M7 10l5 5 5-5M12 15V3"/>
+          </svg> Download PNG
+        `;
+
+        downloadBtn.addEventListener('click', () => generateHighResImage(jokeText, i + 1));
+
+        cardEl.appendChild(previewBox);
+        cardEl.appendChild(downloadBtn);
+        gridEl.appendChild(cardEl);
+      });
+
+      batchEl.appendChild(gridEl);
+      outputContainer.insertBefore(batchEl, outputContainer.firstChild);
     }
 
-    function BatchGroup({ batch, batchIndex, onRemove }) {
-      return (
-        <div style={{
-          background: "rgba(255,255,255,0.025)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: "18px",
-          padding: "20px",
-          marginBottom: "20px",
-        }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
-            <span style={{
-              fontSize: "10px", fontFamily: "'DM Mono', monospace",
-              letterSpacing: "0.15em", textTransform: "uppercase",
-              color: "rgba(255,200,80,0.55)",
-            }}>
-              Batch {String(batchIndex + 1).padStart(2, "0")} · {batch.length} Cards
-            </span>
+    function generateHighResImage(text, number) {
+      // Идеальное холст-разрешение 2000х3000 через SVG blob векторную отрисовку (работает без внешних библиотек)
+      const width = 2000;
+      const height = 3000;
+      
+      // Форматируем текст, заменяя переносы строк на теги для SVG
+      const lines = text.split('\n');
+      let tspanContent = '';
+      lines.forEach((line) => {
+        tspanContent += `<tspan x="1000" dy="1.45em">${escapeHtml(line)}</tspan>`;
+      });
 
-            <button
-              onClick={onRemove}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "7px",
-                color: "rgba(255,255,255,0.35)",
-                cursor: "pointer",
-                width: "26px", height: "26px",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "14px", padding: 0,
-              }}
-            >
-              ×
-            </button>
-          </div>
+      const svgString = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+          <style>
+            @import url('https://fonts.cdnfonts.com/css/cal-sans');
+            .bg { fill: #ffffff; }
+            .txt { 
+              font-family: 'Cal Sans', sans-serif; 
+              font-size: 64px; 
+              font-weight: 600; 
+              fill: #000000; 
+              text-anchor: middle;
+            }
+          </style>
+          <rect width="100%" height="100%" class="bg" />
+          <text y="1100" class="txt">${tspanContent}</text>
+        </svg>
+      `;
 
-          <div style={{ 
-            display: "grid", 
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", 
-            gap: "16px" 
-          }}>
-            {batch.map((jokeText, i) => (
-              <JokeCardPreview key={i} jokeText={jokeText} index={i} />
-            ))}
-          </div>
-        </div>
-      );
-    }
+      const img = new Image();
+      const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
 
-    function App() {
-      const [input, setInput] = useState("");
-      const [batches, setBatches] = useState([]);
-      const textareaRef = useRef(null);
-
-      const handlePaste = useCallback(async () => {
-        try {
-          const text = await navigator.clipboard.readText();
-          setInput(text);
-        } catch {
-          textareaRef.current?.focus();
-        }
-      }, []);
-
-      const handleClearInput = useCallback(() => setInput(""), []);
-
-      const handleExtract = useCallback(() => {
-        if (!input.trim()) return;
-        const result = parseOnlyJokes(input);
-        if (result.length === 0) return;
-        setBatches(prev => [...prev, result]);
-        setInput("");
-      }, [input]);
-
-      const handleRemoveBatch = useCallback((idx) => {
-        setBatches(prev => prev.filter((_, i) => i !== idx));
-      }, []);
-
-      const btnBase = {
-        border: "1px solid rgba(255,200,80,0.2)",
-        borderRadius: "8px",
-        background: "rgba(255,200,80,0.07)",
-        color: "rgba(255,200,80,0.55)",
-        cursor: "pointer",
-        padding: "7px 11px",
-        fontSize: "13px",
-        fontFamily: "'DM Mono', monospace",
-        display: "flex", alignItems: "center", gap: "6px",
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        
+        const pngUrl = canvas.toDataURL('image/png');
+        const downloadLink = document.createElement('a');
+        downloadLink.href = pngUrl;
+        downloadLink.download = `joke-card-${String(number).padStart(2, '0')}.png`;
+        downloadLink.click();
+        
+        URL.revokeObjectURL(url);
       };
 
-      return (
-        <div style={{
-          minHeight: "100vh",
-          background: "#0f0e0d",
-          backgroundImage: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,200,80,0.07) 0%, transparent 60%)",
-          padding: "40px 16px 60px",
-          boxSizing: "border-box",
-        }}>
-          {/* Header */}
-          <div style={{ textAlign: "center", marginBottom: "32px" }}>
-            <div style={{
-              display: "inline-block", fontSize: "10px", fontFamily: "'DM Mono', monospace",
-              letterSpacing: "0.2em", color: "rgba(255,200,80,0.6)", textTransform: "uppercase",
-              marginBottom: "12px", background: "rgba(255,200,80,0.07)",
-              padding: "4px 14px", borderRadius: "20px", border: "1px solid rgba(255,200,80,0.15)",
-            }}>
-              Image Engine v2
-            </div>
-            <h1 style={{
-              margin: 0, fontSize: "28px", fontWeight: "600",
-              color: "rgba(255,255,255,0.92)", lineHeight: "1.2", letterSpacing: "-0.01em",
-            }}>
-              Cal Sans Card<br />
-              <span style={{ color: "rgb(255,200,80)" }}>Visualizer</span>
-            </h1>
+      img.src = url;
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
